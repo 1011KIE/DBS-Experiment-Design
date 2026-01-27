@@ -1,0 +1,36 @@
+# ============================================
+# openGauss远程数据库配置模板
+# ============================================
+# 使用方法：
+# 1. 复制此文件内容
+# 2. 在项目根目录创建 .env 文件
+# 3. 粘贴内容并修改为你的实际信息
+# ============================================
+
+# 远程openGauss数据库连接
+# 格式：postgresql+psycopg2://用户名:密码@主机:端口/数据库名
+# 端口可以是：5432（默认）或 26000（openGauss常见）或其他自定义端口
+DATABASE_URL=postgresql+psycopg2://gaussdb:YourPassword@192.168.1.100:26000/industry_energy
+
+# Flask应用密钥（用于session加密，请修改为随机字符串）
+SECRET_KEY=your-secret-key-here-change-this-to-random-string
+
+# ============================================
+# 配置说明：
+# 
+# DATABASE_URL 参数说明：
+# - 用户名：你的openGauss数据库用户名（如：gaussdb）
+# - 密码：数据库密码
+# - 主机：远程服务器IP地址或域名（如：192.168.1.100）
+# - 端口：数据库端口（常见：5432或26000，根据实际部署配置）
+# - 数据库名：要连接的数据库名称（如：industry_energy）
+#
+# 示例：
+# DATABASE_URL=postgresql+psycopg2://gaussdb:password123@192.168.1.100:5432/industry_energy  # 标准端口
+# DATABASE_URL=postgresql+psycopg2://gaussdb:password123@192.168.1.100:26000/industry_energy  # openGauss常用端口
+# DATABASE_URL=postgresql+psycopg2://user:pass@db.example.com:26000/industry_energy  # 使用域名
+#
+# 如果使用SSL连接，可以添加参数：
+# DATABASE_URL=postgresql+psycopg2://user:pass@host:port/db?sslmode=require
+# ============================================
+
